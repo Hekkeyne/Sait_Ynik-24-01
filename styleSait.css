@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 16px;
@@ -61,6 +65,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
     font-size: clamp(24px, 3vw, 30px); /* Адаптивный шрифт */
     font-weight: 700;
     color: #3D7FBB;
@@ -68,6 +75,18 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 3px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     text-decoration: none;
+}
+
+.logo img {
+    display: block;
+    height: clamp(38px, 4vw, 50px);
+    width: auto;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: translateY(-2px);
 }
 
 .nav_1 {
@@ -262,17 +281,148 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-card {
-    padding: 20px 0 60px 0px;
-    border-radius: 30px;
-    text-align: center;
+    --service-accent: #fcd024;
+    position: relative;
     width: 100%;
     max-width: 450px;
+    min-height: 400px;
+    padding: 26px 30px 44px;
+    border-radius: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.service-card p {
-    font-size: clamp(20px, 2.5vw, 30px);
+/* Сцена карусели: услуги «прокручиваются» справа налево */
+.service-stage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.service-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.service-track {
+    display: flex;
+    width: 100%;
+    will-change: transform;
+}
+
+.service-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.service-card-kicker {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    line-height: 1;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.service-card-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 2.4em;
+    margin: 0;
+    font-size: clamp(22px, 2.5vw, 32px);
     font-weight: 600;
-    margin-bottom: 20px;
+    line-height: 1.15;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.service-card .icon-circle {
+    width: clamp(130px, 12vw, 180px);
+    height: clamp(130px, 12vw, 180px);
+    margin: 6px auto 0;
+    background-color: var(--service-accent);
+    box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.14);
+    transition: background-color 0.5s ease;
+}
+
+.service-card .icon-circle img {
+    width: 66%;
+    height: 66%;
+    padding: 0;
+}
+
+/* Точки-переключатели услуг */
+.service-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.service-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: width 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.service-dot:hover {
+    background: rgba(255, 255, 255, 0.75);
+    transform: scale(1.15);
+}
+
+.service-dot.is-active {
+    width: 26px;
+    background: var(--service-accent);
+    transform: none;
+}
+
+.service-dot:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
+
+/* Полоска прогресса: показывает, когда сменится услуга */
+.service-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.service-progress span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--service-accent);
+    box-shadow: 0 0 12px var(--service-accent);
+}
+
+@keyframes serviceProgressFill {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 .icon-circle {
@@ -285,6 +435,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     margin: 0 auto;
     overflow: hidden;
+    box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.14);
 }
 
 .icon-circle img {
@@ -433,6 +584,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     overflow: hidden;
     margin-bottom: 10px;
+    box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.14);
 }
 
 .service-icon img {
@@ -486,11 +638,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     margin-bottom: 20px;
     text-transform: uppercase;
+    color: white;
 }
 
 .direction-list {
     list-style-type: none;
     padding-left: 0;
+    color:white;
 }
 
 .direction-list li {
@@ -696,13 +850,22 @@ footer {
     }
 
     .header_inner {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px 15px;
     }
 
     .logo {
+        order: 1;
         color: #3D7FBB;
         text-shadow: none;
+    }
+
+    .nav_1.nav_phone {
+        order: 2;
+        width: auto;
     }
 
     .nav_1 {
@@ -711,6 +874,20 @@ footer {
         box-shadow: none;
         padding: 0;
         width: 100%;
+    }
+
+    /* Меню на телефоне — одна прокручиваемая строка */
+    .nav_1:not(.nav_phone) {
+        order: 3;
+        flex-basis: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .nav_1:not(.nav_phone)::-webkit-scrollbar {
+        display: none;
     }
 
     .nav_link_1 {
@@ -751,6 +928,20 @@ footer {
     .icon-circle {
         width: 100px;
         height: 100px;
+    }
+
+    .service-card {
+        min-height: auto;
+        padding: 24px 20px 40px;
+    }
+
+    .service-card .icon-circle {
+        width: 118px;
+        height: 118px;
+    }
+
+    .service-card-name {
+        font-size: 26px;
     }
 
     .btn-yellow {
@@ -808,5 +999,34 @@ footer {
     
     .company {
         gap: 15px;
+    }
+
+    .service-card-name {
+        font-size: 22px;
+    }
+
+    .logo img {
+        height: 32px;
+    }
+
+    .nav_phone .nav_link_1 {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .service-dot,
+    .service-card .icon-circle,
+    .logo img {
+        transition: none;
+    }
+
+    .service-progress {
+        display: none;
     }
 }
