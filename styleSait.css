@@ -1,6 +1,4 @@
-/* =========================================
-   1. БАЗОВЫЕ НАСТРОЙКИ И 4K ЗАЩИТА
-   ========================================= */
+﻿
 * {
     margin: 0;
     padding: 0;
@@ -17,19 +15,17 @@ body {
     color: #fff;
     line-height: 1.6;
     overflow-x: hidden;
-    /* Предотвращает горизонтальный скролл на любых экранах */
+    
     max-width: 100vw; 
 }
 
-/* Ключевое исправление для 4K: ограничиваем максимальную ширину контента */
 .container {
     width: 100%;
-    max-width: 1440px; /* На экранах >1440px контент будет по центру, а не растягиваться */
+    max-width: 1440px; 
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Для настоящих 4K мониторов (от 2500px) немного расширяем контейнер, но не бесконечно */
 @media (min-width: 2500px) {
     .container {
         max-width: 1800px;
@@ -44,9 +40,6 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1px;
 }
 
-/* =========================================
-   2. HEADER
-   ========================================= */
 .header {
     position: absolute;
     top: 30px; 
@@ -68,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
-    font-size: clamp(24px, 3vw, 30px); /* Адаптивный шрифт */
+    font-size: clamp(24px, 3vw, 30px); 
     font-weight: 700;
     color: #3D7FBB;
     text-transform: uppercase;
@@ -105,11 +98,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav_phone {
-    /* Плавность анимации для всего блока */
+    
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* При наведении на ВЕСЬ блок nav_phone - поднимается блок целиком */
 .nav_phone:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -128,22 +120,17 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50px;
 }
 
-/* ВАЖНО: Поднимаем текст ТОЛЬКО в обычном блоке (не в nav_phone) */
 .nav_1:not(.nav_phone) .nav_link_1:hover {
     color: #ffcc00;
     transform: translateY(-3px);
     
 }
 
-/* Для ссылки внутри nav_phone - НЕ поднимаем текст, только меняем цвет */
 .nav_phone .nav_link_1:hover {
     color: #ffcc00;
-    transform: none; /* Отменяем подъем текста */
+    transform: none; 
 }
 
-/* =========================================
-   3. HERO SECTION
-   ========================================= */
 .hero-section {
     position: relative;
     width: 100%;
@@ -167,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
         linear-gradient(to top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 5%),
         linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 5%),
         linear-gradient(to left, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 5%),
-        url('access/Фон_главная.jpg'); 
+        url('access/hero-bg.jpg'); 
     background-size: cover;
     background-position: center 15%; 
     background-repeat: no-repeat;
@@ -191,15 +178,14 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(30px, 5vw, 75px); /* Адаптивный отступ */
+    gap: clamp(30px, 5vw, 75px); 
     width: 100%;
-    max-width: 1400px; /* Ограничиваем ширину контента героя */
+    max-width: 1400px; 
     margin: 0 auto;
     padding-top: 90px;
     align-items: stretch;
 }
 
-/* --- Стеклянные карточки --- */
 .glass-card {
     position: relative; 
     overflow: hidden; 
@@ -235,7 +221,6 @@ h1, h2, h3, h4, h5, h6 {
     min-height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .card-subtitle {
@@ -291,43 +276,30 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-}
-
-/* Сцена карусели: услуги «прокручиваются» справа налево */
-.service-stage {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-}
-
-.service-viewport {
-    width: 100%;
-    overflow: hidden;
-}
-
-.service-track {
-    display: flex;
-    width: 100%;
-    will-change: transform;
 }
 
 .service-slide {
-    flex: 0 0 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 14px;
+}
+
+.service-card .carousel,
+.service-card .carousel-inner {
+    width: 100%;
+}
+
+.service-card .carousel-item {
+    transition: transform 0.55s ease-in-out;
 }
 
 .service-card-kicker {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2.5px;
@@ -366,63 +338,43 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
-/* Точки-переключатели услуг */
-.service-dots {
+.service-card .carousel-indicators {
+    position: static;
+    margin: 20px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-top: 20px;
 }
 
-.service-dot {
+.service-card .carousel-indicators [data-bs-target] {
     width: 8px;
     height: 8px;
     padding: 0;
+    margin: 0;
     border: 0;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+    text-indent: 0;
     cursor: pointer;
     transition: width 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
 }
 
-.service-dot:hover {
+.service-card .carousel-indicators [data-bs-target]:hover {
     background: rgba(255, 255, 255, 0.75);
     transform: scale(1.15);
 }
 
-.service-dot.is-active {
+.service-card .carousel-indicators .active {
     width: 26px;
     background: var(--service-accent);
     transform: none;
 }
 
-.service-dot:focus-visible {
+.service-card .carousel-indicators [data-bs-target]:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 4px;
-}
-
-/* Полоска прогресса: показывает, когда сменится услуга */
-.service-progress {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.14);
-}
-
-.service-progress span {
-    display: block;
-    width: 0;
-    height: 100%;
-    background: var(--service-accent);
-    box-shadow: 0 0 12px var(--service-accent);
-}
-
-@keyframes serviceProgressFill {
-    from { width: 0; }
-    to { width: 100%; }
 }
 
 .icon-circle {
@@ -469,9 +421,6 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 15px 25px rgba(252, 208, 36, 0.6);
 }
 
-/* =========================================
-   4. КОМПАНИИ (PARTNERS)
-   ========================================= */
 .subtitle_company {
     font-size: clamp(24px, 3vw, 30px);
     font-weight: 600;
@@ -506,7 +455,7 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
     max-height: 80px;
     object-fit: contain;
-    filter: grayscale(100%); /* Опционально: делает лого стильнее */
+    filter: grayscale(100%); 
     transition: filter 0.3s ease;
 }
 
@@ -514,9 +463,6 @@ h1, h2, h3, h4, h5, h6 {
     filter: grayscale(0%);
 }
 
-/* =========================================
-   5. УСЛУГИ (SERVICES)
-   ========================================= */
 .services-section {
     padding: 40px 0 80px 0;
 }
@@ -533,11 +479,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .services-grid {
     display: grid;
-    /* АВТОМАТИЧЕСКАЯ АДАПТИВНАЯ СЕТКА: от 1 до 3 колонок в зависимости от экрана */
+    
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     width: 100%;
-    max-width: 1200px; /* Убрали опасные 70% */
+    max-width: 1200px; 
     margin: 0 auto;
 }
 
@@ -598,9 +544,6 @@ h1, h2, h3, h4, h5, h6 {
 .icon-green { background-color: #4caf50; }
 .icon-blue { background-color: #3d7fbb; }
 
-/* =========================================
-   6. НАПРАВЛЕНИЯ (INFO BLOCKS)
-   ========================================= */
 .directions-section {
     padding: 60px 0;
     background-color: #f8f9fa;
@@ -612,15 +555,14 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     position: relative; 
     padding: clamp(25px, 4vw, 50px);
-    margin: 0 auto 40px auto; /* Центрируем, убираем опасные 20% */
+    margin: 0 auto 40px auto; 
     z-index: 1;
-    max-width: 1200px; /* Ограничиваем ширину для читаемости */
+    max-width: 1200px; 
     width: 90%;
     border-radius: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Чередование выравнивания только на больших экранах для красоты */
 @media (min-width: 1024px) {
     .block-blue { margin-right: auto; margin-left: 0%; max-width: 85%; border-radius: 50px 50px 50px 0; }
     .block-green { margin-left: auto; margin-right: 0%; max-width: 85%; border-radius: 50px 50px 0px 50px; }
@@ -656,7 +598,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .direction-list li::before {
-    content: '•';
+    content: '\2022';
     position: absolute;
     left: 0;
     top: 0;
@@ -678,23 +620,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .direction-number {
-    font-size: clamp(80px, 12vw, 180px); /* Адаптивный размер цифры */
+    font-size: clamp(80px, 12vw, 180px); 
     font-weight: 900;
     line-height: 1;
     color: rgba(255, 255, 255, 0.3);
     margin-left: 30px;
     user-select: none;
     z-index: 1;
-    flex-shrink: 0; /* Запрещаем сжиматься */
+    flex-shrink: 0; 
 }
 
 .block-yellow { background-color: #fcd024; color: #000; }
 .block-green { background-color: #4caf50; }
 .block-blue { background-color: #3d7fbb; }
 
-/* =========================================
-   7. FOOTER
-   ========================================= */
 footer {
     background: #3D66BB;
     color: #ffffff;
@@ -705,7 +644,7 @@ footer {
 
 .footer-grid {
     display: grid;
-    /* Адаптивная сетка: авто-заполнение */
+    
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
     text-align: left;
@@ -797,11 +736,6 @@ footer {
     transform: translateY(-3px);
 }
 
-/* =========================================
-   8. АДАПТИВНОСТЬ (МЕДИА-ЗАПРОСЫ)
-   ========================================= */
-
-/* Планшеты (до 1024px) */
 @media (max-width: 1024px) {
     .hero_content {
         grid-template-columns: 1fr;
@@ -839,7 +773,6 @@ footer {
     }
 }
 
-/* Мобильные устройства (до 768px) */
 @media (max-width: 768px) {
     .header {
         position: relative;
@@ -876,7 +809,7 @@ footer {
         width: 100%;
     }
 
-    /* Меню на телефоне — одна прокручиваемая строка */
+    
     .nav_1:not(.nav_phone) {
         order: 3;
         flex-basis: 100%;
@@ -950,14 +883,13 @@ footer {
     }
 
     .services-grid {
-        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+        grid-template-columns: 1fr; 
         max-width: 100%;
     }
     
     .service-item {
-        aspect-ratio: auto; /* Убираем квадратность на мобильных для лучшего чтения */
-        min-height: 250px;
-        flex-direction: row; /* Иконка слева, текст справа на мобильных */
+        aspect-ratio: auto; 
+        flex-direction: row; 
         text-align: left;
         gap: 20px;
     }
@@ -985,7 +917,6 @@ footer {
     }
 }
 
-/* Маленькие мобильные (до 480px) */
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
@@ -1020,13 +951,509 @@ footer {
         scroll-behavior: auto;
     }
 
-    .service-dot,
+    .service-card .carousel-indicators [data-bs-target],
     .service-card .icon-circle,
     .logo img {
         transition: none;
     }
 
-    .service-progress {
+    .service-card .carousel-item {
+        transition: none;
+    }
+}
+
+.about-hero {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 1%),
+        linear-gradient(to top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 5%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 5%),
+        linear-gradient(to left, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 5%),
+        url('access/about-bg.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+    box-shadow: inset 0 0 80px 60px #ffffff;
+    z-index: 0;
+}
+
+.about-hero-title {
+    position: relative;
+    z-index: 2;
+    margin-top: clamp(100px, 15vh, 170px);
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.about-banner {
+    padding: 30px 0;
+}
+
+.banner-block {
+    background-color: #3d7fbb;              
+    color: #fff;
+    border-radius: 50px 50px 50px 0;        
+    padding: clamp(25px, 4vw, 50px);
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.banner-block.alt {
+    border-radius: 50px 50px 0 50px;        
+}
+
+.banner-head {
+    display: flex;
+    align-items: baseline;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.banner-label {
+    font-size: clamp(12px, 1.2vw, 14px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.banner-title {
+    flex: 1;
+    min-width: 260px;
+    font-size: clamp(22px, 2.6vw, 32px);
+    line-height: 1.3;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.banner-text {
+    margin-top: 20px;
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+
+.about-info {
+    padding: 40px 0;
+    color: #222;
+}
+
+.info-columns {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(30px, 4vw, 60px);
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-col p {
+    margin-bottom: 15px;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.6;
+}
+
+.info-contacts h3 {
+    font-size: clamp(16px, 1.5vw, 18px);
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.info-contacts p {
+    font-weight: 600;
+}
+
+.info-contacts a {
+    display: inline-block;
+    color: #3D66BB;
+    text-decoration: underline;
+    padding: 2px 6px;
+    margin: 0 -6px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.info-contacts a:hover {
+    background: #fcd024;
+    color: #000;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(252, 208, 36, 0.4);
+}
+
+.about-team {
+    padding: 40px 20px 0;
+}
+
+.team-photo-wrap {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.team-photo {
+    width: 100%;
+    display: block;
+}
+
+.team-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 80px 60px #ffffff;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.team-cards {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: -160px auto 0;   
+    padding: 0 20px 40px;
+}
+
+.team-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    color: #fff;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.team-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+.team-card h3 {
+    font-size: clamp(16px, 1.6vw, 20px);
+    margin-bottom: 6px;
+}
+
+.team-card p {
+    font-size: clamp(11px, 1vw, 13px);
+    line-height: 1.4;
+}
+
+.about-director {
+    padding: 60px 0;
+    color: #222;
+}
+
+.director-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(30px, 4vw, 60px);
+    align-items: start;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.director-text p {
+    margin-bottom: 15px;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.6;
+}
+
+.director-photo {
+    margin: 0;
+}
+
+.director-photo img {
+    width: 100%;
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.director-photo img:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.director-photo figcaption {
+    margin-top: 12px;
+    font-size: clamp(13px, 1.2vw, 15px);
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .info-columns,
+    .director-columns {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .team-cards {
+        grid-template-columns: 1fr;
+        margin-top: -60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        min-height: 60vh;
+        padding: 10px;
+    }
+
+    .about-hero::before {
+        top: 0;
+        border-radius: 20px;
+    }
+
+    .banner-block,
+    .banner-block.alt {
+        width: 95%;
+        padding: 20px;
+        border-radius: 25px;
+    }
+
+    .team-photo-wrap {
+        border-radius: 20px;
+    }
+}
+
+.header-phone,
+.mobile-bar,
+.mobile-backdrop,
+.mobile-sheet {
+    display: none;
+}
+
+body.sheet-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --glass-radius: 24px;
+    }
+
+    .nav_1 {
         display: none;
+    }
+
+
+    .header-phone {
+        display: inline-flex;
+        align-items: center;
+        flex-shrink: 0;
+        color: #3D7FBB;
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(13px, 3.6vw, 16px);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        text-decoration: none;
+    }
+
+    .mobile-bar {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+        background: transparent;
+        pointer-events: none;
+    }
+
+    .mobile-bar__btn,
+    .mobile-sheet__head,
+    .mobile-sheet__list {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: var(--glass-radius);
+        background: rgba(61, 102, 187, 0.68);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .mobile-bar__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 180px;
+        min-height: 48px;
+        padding: 0 32px;
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        pointer-events: auto;
+        font-family: 'Oswald', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .mobile-bar__btn svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        fill: currentColor;
+    }
+
+    .mobile-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 1001;
+        background: rgba(15, 25, 45, 0.22);
+        backdrop-filter: blur(10px) saturate(120%);
+        -webkit-backdrop-filter: blur(10px) saturate(120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .mobile-backdrop.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-sheet {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1002;
+        max-height: 80vh;
+        overflow-y: auto;
+        padding: 12px 16px calc(16px + env(safe-area-inset-bottom));
+        background: transparent;
+        color: #fff;
+        transform: translateY(100%);
+        visibility: hidden;
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.28s;
+    }
+
+    .mobile-sheet.is-open {
+        transform: translateY(0);
+        visibility: visible;
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
+    }
+
+    .mobile-sheet__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        width: 100%;
+        margin: 0 0 10px;
+        padding: 5px 8px 5px 16px;
+    }
+
+    .mobile-sheet__list {
+        padding: 6px 10px;
+    }
+
+    .mobile-sheet__close {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.16);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: #fff;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .mobile-sheet__title {
+        margin: 0;
+        font-family: 'Oswald', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #fff;
+        justify-content: center;
+    }
+
+    .mobile-sheet__link {
+        display: block;
+        padding: 14px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .mobile-sheet__link:active {
+        background: rgba(255, 255, 255, 0.14);
+    }
+
+    .mobile-sheet__link:last-of-type {
+        border-bottom: 0;
+    }
+
+    .mobile-sheet__call {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        margin: 10px 0 6px;
+        border-radius: var(--glass-radius);
+        background: #4caf50;
+        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.35);
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-decoration: none;
     }
 }

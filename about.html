@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/656d641363.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styleSait.css">
-    <link rel="stylesheet" href="about.css">
     <title>О компании — СЭС ДЕЗ-Комфорт</title>
 </head>
 <body>
 
-    <!-- ШАПКА: полностью как на главной, все hover-эффекты работают из styleSait.css -->
     <header class="header">
         <div class="container">
             <div class="header_inner">
-                <a class="logo" href="main.html"> Комфорт </a>
-                <nav class="nav_1">
+                <a class="logo" href="index.html" aria-label="ДЕЗ-Комфорт — на главную">
+                    <img src="access/Картинки сайт/logo-dez-comfort.png" alt="ДЕЗ-Комфорт">
+                </a>
+                <nav class="nav_1" aria-label="Основное меню">
                     <a class="nav_link_1" href="about.html">О компании</a>
-                    <a class="nav_link_1" href="">Организациям</a>
-                    <a class="nav_link_1" href="">Услуги</a>
-                    <a class="nav_link_1" href="">Методы обработки</a>
+                    <a class="nav_link_1" href="index.html#contacts">Организациям</a>
+                    <a class="nav_link_1" href="index.html#services">Услуги</a>
+                    <a class="nav_link_1" href="index.html#directions">Методы обработки</a>
                 </nav>
-                <nav class="nav_1 nav_phone">
-                    <a class="nav_link_1 nav_link_phone" href="">Просто позвони</a>
+                <nav class="nav_1 nav_phone" aria-label="Телефон">
+                    <a class="nav_link_1 nav_link_phone" href="tel:+73912496663">8 (391) 249-66-63</a>
                 </nav>
+
+                <a class="header-phone" href="tel:+73912496663">8 (391) 249-66-63</a>
             </div>
         </div>
     </header>
 
-    <!-- HERO: фото с белыми краями + крупный заголовок -->
     <section class="about-hero">
         <h1 class="about-hero-title">О компании</h1>
     </section>
 
-    <!-- СИНИЙ БАННЕР «ИНФОРМАЦИЯ» -->
     <section class="about-banner">
         <div class="banner-block">
             <div class="banner-head">
@@ -46,7 +45,6 @@
         </div>
     </section>
 
-    <!-- ТЕКСТ О КОМПАНИИ + РЕКВИЗИТЫ -->
     <section class="about-info">
         <div class="info-columns">
             <div class="info-col">
@@ -66,7 +64,7 @@
                 <p>
                     ИП Михайлюк Сергей Леонидович<br>
                     ИНН 24610278263<br>
-                    Лицензия № Л064-00111-24/01827147 от 05.02.2025 г.<br>
+                    Лицензия No Л064-00111-24/01827147 от 05.02.2025 г.<br>
                     Юр. адрес: Красноярский край, Красноярск, ул. Аэровокзальная, д. 8В, пом. 67<br>
                     Офис: Красноярский край, Красноярск, ул. Аэровокзальная, д. 8В, цокольный этаж
                 </p>
@@ -74,28 +72,27 @@
         </div>
     </section>
 
-    <!-- ФОТО КОМАНДЫ + 3 СТЕКЛЯННЫЕ КАРТОЧКИ ПОВЕРХ -->
     <section class="about-team">
         <div class="team-photo-wrap">
             <img src="access/Команда_за_работой.jpg" alt="Наша команда за работой" class="team-photo">
         </div>
         <div class="team-cards">
             <div class="glass-card grain team-card">
-                <img src="access/Фото_статус.jpg" alt="">
+                <img src="access/Фото_статус.jpg" alt="Статус">
                 <div>
                     <h3>Статус</h3>
                     <p>являемся Членом Ассоциации специалистов и организаций в сфере дезинфекции и Пест-контроля</p>
                 </div>
             </div>
             <div class="glass-card grain team-card">
-                <img src="access/Фото_безопасность.jpg" alt="">
+                <img src="access/Фото_безопасность.jpg" alt="Безопасность">
                 <div>
                     <h3>Безопасность</h3>
                     <p>препараты и методы без вреда для здоровья человека, животных и окружающей среды</p>
                 </div>
             </div>
             <div class="glass-card grain team-card">
-                <img src="access/Фото_анонимность.jpg" alt="">
+                <img src="access/Фото_анонимность.jpg" alt="Анонимность">
                 <div>
                     <h3>Анонимность</h3>
                     <p>сохраняем анонимность, работаем бесшумно, незаметно для соседей и конкурентов</p>
@@ -104,7 +101,6 @@
         </div>
     </section>
 
-    <!-- СИНИЙ БАННЕР «ФИЛОСОФИЯ» -->
     <section class="about-banner">
         <div class="banner-block alt">
             <div class="banner-head">
@@ -115,7 +111,6 @@
         </div>
     </section>
 
-    <!-- СЛОВО ДИРЕКТОРА -->
     <section class="about-director">
         <div class="director-columns">
             <div class="director-text">
@@ -130,7 +125,6 @@
         </div>
     </section>
 
-    <!-- ПОДВАЛ: точная копия подвала главной (все hover стили уже в styleSait.css) -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -138,30 +132,54 @@
                     <h3 class="footer-title">МЕНЮ</h3>
                     <ul class="footer-menu">
                         <li><a href="about.html">О КОМПАНИИ</a></li>
-                        <li><a href="#">ОРГАНИЗАЦИЯМ</a></li>
-                        <li><a href="#">УСЛУГИ</a></li>
-                        <li><a href="#">МЕТОДЫ ОБРАБОТКИ</a></li>
+                        <li><a href="index.html#contacts">ОРГАНИЗАЦИЯМ</a></li>
+                        <li><a href="index.html#services">УСЛУГИ</a></li>
+                        <li><a href="index.html#directions">МЕТОДЫ ОБРАБОТКИ</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3 class="footer-title">НАШИ КОНТАКТЫ</h3>
                     <p><a href="tel:+73912496663" class="footer-phone">8 (391) 249-66-63</a></p>
-                    <p><a href="mailto:info@dez-comfort.ru" class="footer-email">info@dez-comfort.ru,</a></p>
+                    <p><a href="mailto:info@dez-comfort.ru" class="footer-email">info@dez-comfort.ru</a></p>
                     <p>Офис: Красноярский<br>край, Красноярск, ул. Аэровокзальная, д.<br>8В, цокольный этаж<br>
                     ИП Михайлюк Сергей Леонидович<br>
                     ИНН 246102782863<br>
-                    Лицензия № Л064-00111-24/01827147 от<br>05.02.2025 г.</p>
+                    Лицензия No Л064-00111-24/01827147 от<br>05.02.2025 г.</p>
                 </div>
                 <div class="footer-col">
                     <h3 class="footer-title">ООО КОМФОРТНЫЙ ДОМ</h3>
                     <p>ИНН 0278217824<br>
                     ОГРН 1140280074615</p>
-                    <p>Товарный знак № 743862 от 17.06.2019 г.<br>
-                    Товарный знак № 801829 от 29.05.2020 г.</p>
+                    <p>Товарный знак No 743862 от 17.06.2019 г.<br>
+                    Товарный знак No 801829 от 29.05.2020 г.</p>
                 </div>
             </div>
         </div>
     </footer>
 
+<nav class="mobile-bar" aria-label="Мобильная навигация">
+        <button class="mobile-bar__btn mobile-bar__menu" type="button" aria-expanded="false" aria-controls="mobileSheet" aria-label="Открыть меню">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+            <span>Меню</span>
+        </button>
+    </nav>
+
+    <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+    <div class="mobile-sheet" id="mobileSheet" role="dialog" aria-modal="true" aria-label="Меню сайта">
+        <div class="mobile-sheet__head">
+            <p class="mobile-sheet__title">Меню</p>
+            <button class="mobile-sheet__close" type="button" aria-label="Закрыть меню">×</button>
+        </div>
+        <nav class="mobile-sheet__list" aria-label="Пункты меню">
+            <a class="mobile-sheet__link" href="about.html">О компании</a>
+            <a class="mobile-sheet__link" href="index.html#contacts">Организациям</a>
+            <a class="mobile-sheet__link" href="index.html#services">Услуги</a>
+            <a class="mobile-sheet__link" href="index.html#directions">Методы обработки</a>
+            <a class="mobile-sheet__call" href="tel:+73912496663">Позвонить: 8 (391) 249-66-63</a>
+        </nav>
+    </div>
+
+    <script src="header.js" defer></script>
 </body>
 </html>
